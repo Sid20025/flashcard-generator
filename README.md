@@ -1,70 +1,108 @@
-# Getting Started with Create React App
+# FlashMind - AI-Powered Flashcard Generator
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, colorful flashcard app with AI-powered card generation and spaced repetition. Generate flashcards instantly from any topic or your own notes, then quiz yourself with flip cards or multiple choice - all while a smart algorithm makes sure you remember everything.
 
-## Available Scripts
+![App Screenshot](screenshot.png)
 
-In the project directory, you can run:
+## Live Demo
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- 🤖 AI-powered flashcard generation:
+  - Generate flashcards by typing a topic
+  - Or paste your own notes and AI creates cards from them
+  - AI also suggests related topics to study next
+- 🧠 Two quiz modes:
+  - **Flip Cards** — Tap to reveal the answer
+  - **Multiple Choice** — Pick from 4 options
+- 🔄 Spaced Repetition (SM-2 Algorithm):
+  - Cards you struggle with come back sooner
+  - Cards you know well get spaced out over days
+  - Tracks next review date for every card
+- 📂 Deck Organization:
+  - Create and manage multiple decks
+  - Organize decks by subject
+  - Color-coded decks for easy identification
+- 📊 Progress & Analytics:
+  - Track mastered vs learning cards
+  - See accuracy rates
+  - View cards due today
+  - Bar charts showing progress per deck
+  - Difficulty breakdown (Easy, Medium, Hard)
+- 💾 Persistent data storage using localStorage
+- 🎨 Colorful, vibrant UI with gradients and smooth transitions
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Tech Stack
 
-### `npm test`
+- **Frontend:** React, Hooks (useState, useEffect)
+- **Styling:** Tailwind CSS
+- **Charts:** Recharts
+- **Icons:** Lucide React
+- **AI:** Claude API (Anthropic)
+- **Algorithm:** SM-2 Spaced Repetition
+- **Storage:** localStorage
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## How It Works
 
-### `npm run build`
+- **Generate Cards:** Click "AI Generate", type a topic or paste notes, choose how many cards you want, and AI creates flashcards with questions, answers, explanations, and difficulty levels
+- **Organize:** Create decks and sort them by subject. Add AI-generated cards to existing decks or create new ones automatically
+- **Quiz Yourself:** Pick a deck and choose between Flip or Multiple Choice mode. The app tracks which cards are due based on spaced repetition
+- **Learn Smarter:** The SM-2 algorithm (used by Anki) adjusts how often you see each card based on how well you remember it. Cards you struggle with come back sooner, cards you know well get spaced out
+- **Track Progress:** Visit the Stats page to see how many cards you've mastered, your accuracy, and a visual breakdown of your progress across all decks
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## How the SM-2 Algorithm Works
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The app uses the SM-2 spaced repetition algorithm to optimize your study sessions:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- When you get a card right, the interval before you see it again increases (1 day → 6 days → 12 days → ...)
+- When you get a card wrong, it resets back to 1 day
+- Each card has an "ease factor" that adjusts based on how difficult you find it
+- Over time, easy cards are reviewed less often and hard cards are reviewed more often
 
-### `npm run eject`
+## Installation
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+# Clone the repository
+git clone https://github.com/Sid20025/flashcard-generator.git
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Go into the project folder
+cd flashmind
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+# Install dependencies
+npm install
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# Start the app
+npm start
+```
 
-## Learn More
+The app will open in your browser at http://localhost:3000
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## What I Learned
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Implementing the SM-2 spaced repetition algorithm from scratch
+- Working with the Claude AI API to generate structured flashcard data
+- Managing complex state across multiple views (home, deck, quiz, stats)
+- Building interactive quiz UI with flip cards and multiple choice logic
+- Data visualization with Recharts for progress tracking
+- Designing colorful, vibrant UI with Tailwind CSS gradients
+- Persisting complex nested data structures with localStorage
+- Prompt engineering to get AI to return structured JSON data reliably
 
-### Code Splitting
+## Future Improvements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- [ ] Backend API with Node.js and Express
+- [ ] User authentication and login system
+- [ ] Import flashcards from Anki or Quizlet
+- [ ] Export decks as PDF or printable cards
+- [ ] Image support on flashcards
+- [ ] Audio support for language learning
+- [ ] Study streaks and daily reminders
+- [ ] Collaborative decks - share and study with friends
+- [ ] Mobile app version with offline support
+- [ ] Keyboard shortcuts for faster studying
 
-### Analyzing the Bundle Size
+## Author
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Siddharth Aggarwal
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- GitHub: https://github.com/Sid20025/
